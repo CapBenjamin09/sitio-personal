@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home')->name('home');
 
 //Login and Logout
-Route::get('/login', [\App\Http\Controllers\SessionController::class, ]);
+Route::get('/login', [SessionController::class, 'index'])->name('login.index');
+Route::post('/login', [SessionController::class, 'authenticate'])->name('login.authenticate');
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+
+});
