@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,12 @@ Route::view('/', 'home')->name('home');
 Route::get('/login', [SessionController::class, 'index'])->name('login.index');
 Route::post('/login', [SessionController::class, 'authenticate'])->name('login.authenticate');
 
-Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+Route::get('/portfolio', [ProjectsController::class, 'index'])->name('portfolio.index');
+Route::post('/portfolio', [ProjectsController::class, 'store'])->name('portfolio.store');
+Route::get('/portfolio/create', [ProjectsController::class, 'create'])->name('portfolio.create');
+Route::delete('/portfolio/{project}', [ProjectsController::class, 'destroy'])->name('portfolio.destroy');
+Route::get('/portfolio/{project}/edit', [ProjectsController::class, 'edit'])->name('portfolio.edit');
+
 
 Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
 

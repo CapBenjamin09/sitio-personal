@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">Inicio</x-nav-link>
                 </li>
                 <li>
-                    <x-nav-link :href="route('portfolio')"  :active="request()->routeIs('portfolio')">Portafolio</x-nav-link>
+                    <x-nav-link :href="route('portfolio.index')"  :active="request()->routeIs('portfolio.index')">Portafolio</x-nav-link>
                 </li>
                 <li>
                     <x-nav-link :href="route('about-me')"  :active="request()->routeIs('about-me')">Sobre mi</x-nav-link>

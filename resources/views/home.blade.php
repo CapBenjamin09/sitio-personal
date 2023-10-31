@@ -1,25 +1,26 @@
 <x-layouts.app>
 
-    <x-hero>
-        <x-slot name="image">storage/img/hero.png</x-slot>
+    <div class="max-w-screen-xl mx-auto px-5 grid lg:grid-cols-2 place-items-center pt-16 md:pt-12 md:pb-12">
+        <div class="py-6 md:order-1 hidden md:block">
+            <img src="{{ asset('./images/hero.png') }}" alt="">
+        </div>
+        <div>
+            <x-title>
+                Inicio
+            </x-title>
 
-        <x-slot name="title">Inicio</x-slot>
+            <p class="text-lg mt-4 text-slate-600 max-w-xl">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eaque id
+                laudantium nobis officia possimus quibusdam soluta unde veniam. Beatae dicta fuga iste natus
+                necessitatibus possimus quod, sit vero!
+            </p>
 
-        <x-slot name="content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eaque id
-            laudantium nobis officia possimus quibusdam soluta unde veniam. Beatae dicta fuga iste natus
-            necessitatibus possimus quod, sit vero!
-        </x-slot>
-
-        <x-slot name="first">
-            Ver Portafolio
-        </x-slot>
-
-        <x-slot name="secondary">
-            Sobre mi
-        </x-slot>
-
-    </x-hero>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <x-a-button type="primary" href="{{ route('portfolio.index') }}">Portafolio</x-a-button>
+                <x-a-button type="black" href="{{ route('about-me') }}">Sobre mi</x-a-button>
+            </div>
+        </div>
+    </div>
 
     <hr class="max-w-screen-xl h-px mb-8 bg-gray-200 border-0 dark:shadow-2xl mx-auto">
 

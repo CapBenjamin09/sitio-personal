@@ -9,11 +9,5 @@
         <p class="text-lg mt-4 text-slate-600 max-w-xl">
             {{ $content }}
         </p>
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-            <x-a-button type="primary">{{ $first }}</x-a-button>
-
-            <x-a-button type="black">{{ $secondary }}</x-a-button>
-        </div>
-
     </div>
 </div>
