@@ -10,11 +10,16 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                         Bienvenido administrador!
                     </h1>
+                    @if(session('status'))
+                    <x-error-form>
+                        {{ session('status') }}
+                    </x-error-form>
+                    @enderror
                     <form class="space-y-4 md:space-y-6" method="post" action="{{ route('login.authenticate') }}">
                         @csrf
                         <div>
                             <x-label for="email">Tu email:</x-label>
-                            <x-input-form type="email" name="email" id="email" placeholder="name@mail.com"/>
+                            <x-input-form type="email" name="email" value="{{ old('email') }}" id="email" placeholder="name@mail.com"/>
                             @error('email')
                                 <x-error-form>
                                     {{ $message }}

@@ -20,6 +20,12 @@ Route::view('/', 'home')->name('home');
 Route::get('/login', [SessionController::class, 'index'])->name('login.index');
 Route::post('/login', [SessionController::class, 'authenticate'])->name('login.authenticate');
 
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+
+Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
 
 Route::middleware('auth')->group(function () {
 
