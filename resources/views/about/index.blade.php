@@ -21,7 +21,7 @@
                 <p class="text-lg text-slate-600 max-w-xl items-center font-semibold">
                     Te interesa el desarrollo de algún proyecto?
                 </p>
-                <x-a-button type="black" href="{{ route('contact.index') }}">Contactamé</x-a-button>
+                <x-a-button type="black" href="{{ route('contact.create') }}">Contactamé</x-a-button>
             </div>
         </div>
     </div>

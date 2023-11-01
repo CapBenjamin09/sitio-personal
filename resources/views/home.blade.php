@@ -10,15 +10,14 @@
             </x-title>
 
             <p class="text-lg mt-4 text-slate-600 max-w-xl">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem eaque id
-                laudantium nobis officia possimus quibusdam soluta unde veniam. Beatae dicta fuga iste natus
-                necessitatibus possimus quod, sit vero!
+                "¡Bienvenidos a mi sitio web! Aquí, encontrarás una ventana a mi mundo profesional y creativo.
+                Este sitio, construido con la potente plataforma Laravel, se compone de varios módulos diseñados para ofrecerte
+                una visión completa de quién soy y lo que hago. En el módulo de 'Portafolio', podrás explorar mis trabajos pasados
+                y proyectos destacados. La sección 'Sobre Mí' te permitirá conocer más sobre mi trayectoria, intereses y pasiones.
+                Además, si deseas ponerte en contacto conmigo o discutir oportunidades de colaboración, simplemente dirígete a la página
+                de 'Contacto'. ¡Espero que disfrutes explorando mi mundo a través de este sitio web!"
             </p>
 
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <x-a-button type="primary" href="{{ route('portfolio.index') }}">Portafolio</x-a-button>
-                <x-a-button type="black" href="{{ route('about.index') }}">Sobre mi</x-a-button>
-            </div>
         </div>
     </div>
 
@@ -29,17 +28,21 @@
             <x-title>Más Información</x-title>
         </div>
 
-        <div class="grid grid-cols-2 gap-12">
-            <x-card>
-                <x-slot name="image">images/hamburguesa-inicio.jpg</x-slot>
-                <x-slot name="title">Mis proyectos</x-slot>
-                <x-slot name="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</x-slot>
-            </x-card>
-            <x-card>
-                <x-slot name="image">images/hamburguesa-inicio.jpg</x-slot>
-                <x-slot name="title">Sobre mi</x-slot>
-                <x-slot name="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</x-slot>
-            </x-card>
+        <div class="grid max-w-full grid-cols-2 gap-2">
+            <a href="{{route('portfolio.index')}}" class="flex flex-col items-center mx-2 mt-5 bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
+                <img class="object-cover w-full rounded-t-lg h-96 md:h-60 md:w-48 md:rounded-none md:rounded-l-lg" src="{{ asset('images/portfolio.jpg') }}" alt="">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Mi portafolio</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Aquí puedes ver los distintos proyectos desarrollados durante el semestre de Programación Web 2</p>
+                </div>
+            </a>
+            <a href="{{route('about.index')}}" class="flex flex-col items-center mx-2 mt-5 bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100">
+                <img class="object-cover w-full rounded-t-lg h-96 md:h-60 md:w-48 md:rounded-none md:rounded-l-lg" src="{{ asset('images/sobremi.jpg') }}" alt="">
+                <div class="flex flex-col justify-between p-4 leading-normal">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Sobre mi</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Te explico un poco sobre mi.</p>
+                </div>
+            </a>
         </div>
     </div>
 

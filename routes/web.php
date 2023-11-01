@@ -28,11 +28,10 @@ Route::get('/portfolio', [ProjectsController::class, 'index'])->name('portfolio.
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
-Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
-Route::delete('/portfolio/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
 
 Route::middleware('auth')->group(function () {
     //LOGOUT
@@ -45,4 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/portfolio/{project}', [ProjectsController::class, 'destroy'])->name('portfolio.destroy');
     Route::get('/portfolio/{project}/edit', [ProjectsController::class, 'edit'])->name('portfolio.edit');
 
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
+    Route::delete('/portfolio/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
 });

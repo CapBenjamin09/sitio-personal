@@ -34,7 +34,7 @@
                 @endif
                 @auth
                     <li>
-                        <x-nav-link :href="route('contact.index')"  :active="request()->routeIs('contact.index')">Contacto</x-nav-link>
+                        <x-nav-link :href="route('contact.index')"  :active="request()->routeIs(['contact.index', 'contact.show'])">Contacto</x-nav-link>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="post">

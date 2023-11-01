@@ -22,7 +22,7 @@
                     @include('contact.form')
 
                     <div class="grid grid-cols-1 my-2">
-                        <x-button type="black" class="">Guardar</x-button>
+                        <x-button type="black" class="">Enviar</x-button>
                     </div>
                 </form>
 
