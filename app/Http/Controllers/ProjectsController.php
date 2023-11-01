@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Projects;
-use Faker\Core\File;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -21,9 +23,8 @@ class ProjectsController extends Controller
         return view('portfolio.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateProjectRequest $request)
     {
-
         $data = $request->all();
 
         $image = $request->file('image_path');
@@ -37,9 +38,29 @@ class ProjectsController extends Controller
         return redirect()->route('portfolio.index');
     }
 
-    public function edit(Projects $projects)
+    public function edit(Projects $project)
     {
-        return view('portfolio.edit');
+        return view('portfolio.edit', compact('project'));
+    }
+
+    public function update(UpdateProjectRequest $request, Projects $project)
+    {
+        $validated = $request->all();
+
+        if ($request->file('image_path')){
+            $image_path = public_path($project->image_path);
+            unlink($image_path);
+            $image = $request->file('image_path');
+            $nameImage = Str::uuid().'.'. $image->extension();
+
+            $imageServer = Image::make($image)->fit(192, 256);
+            $imagePath = public_path('projects').'/'.$nameImage;
+            $imageServer->save($imagePath);
+            $validated['image_path'] = 'projects/'. $nameImage;
+        }
+
+        $project->update($validated);
+        return redirect()->route('portfolio.index');
     }
 
     public function destroy(Projects $project)

@@ -31,12 +31,12 @@
 
         <div class="grid grid-cols-2 gap-12">
             <x-card>
-                <x-slot name="image">storage/img/image.jpg</x-slot>
+                <x-slot name="image">images/hamburguesa-inicio.jpg</x-slot>
                 <x-slot name="title">Mis proyectos</x-slot>
                 <x-slot name="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</x-slot>
             </x-card>
             <x-card>
-                <x-slot name="image">storage/img/image.jpg</x-slot>
+                <x-slot name="image">images/hamburguesa-inicio.jpg</x-slot>
                 <x-slot name="title">Sobre mi</x-slot>
                 <x-slot name="text">Lorem ipsum dolor sit amet, consectetur adipisicing.</x-slot>
             </x-card>

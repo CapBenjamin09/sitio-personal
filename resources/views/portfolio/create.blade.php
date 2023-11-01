@@ -14,36 +14,13 @@
                 @enderror
                 <form class="space-y-4 md:space-y-6" method="post" action="{{ route('portfolio.store') }}" enctype="multipart/form-data">
                     @csrf
-                    <div>
-                        <x-label for="email">Nombre de proyecto:</x-label>
-                        <x-input-form type="text" name="name" value="{{ old('name') }}" id="email" placeholder="Escribe aqui el nombre del proyecto"/>
-                        @error('name')
-                        <x-error-form>
-                            {{ $message }}
-                        </x-error-form>
-                        @enderror
 
-                    </div>
-                    <div>
-                        <x-label for="password">Descripción del proyecto:</x-label>
-                        <x-text-area-form name="detail" value="{{ old('detail') }}" id="detail" placeholder="Escribe la descripción del proyecto..."/>
-                        @error('detail')
-                        <x-error-form>
-                            {{ $message }}
-                        </x-error-form>
-                        @enderror
-                    </div>
-                    <div>
-                        <x-label for="image_path">Imagen de proyecto:</x-label>
-                        <x-input-form type="file" name="image_path" id="image_path" accept="image/*"/>
-                        @error('name')
-                        <x-error-form>
-                            {{ $message }}
-                        </x-error-form>
-                        @enderror
+                    @include('portfolio.form')
 
+                    <div class="grid grid-cols-2 gap-2">
+                        <x-button type="info" class="grid-cols-1">Crear Proyecto</x-button>
+                        <x-a-button type="primary" href="{{ route('portfolio.index') }}" class="grid-cols-3">Regresar</x-a-button>
                     </div>
-                    <x-button type="black" class="w-full h-10">Crear proyecto</x-button>
                 </form>
         </div>
     </div>

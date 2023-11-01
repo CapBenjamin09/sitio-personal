@@ -17,24 +17,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 
-//Login and Logout
+//LOGIN
 Route::get('/login', [SessionController::class, 'index'])->name('login.index');
 Route::post('/login', [SessionController::class, 'authenticate'])->name('login.authenticate');
 
+// RUTA PORTFOLIO
 Route::get('/portfolio', [ProjectsController::class, 'index'])->name('portfolio.index');
-Route::post('/portfolio', [ProjectsController::class, 'store'])->name('portfolio.store');
-Route::get('/portfolio/create', [ProjectsController::class, 'create'])->name('portfolio.create');
-Route::delete('/portfolio/{project}', [ProjectsController::class, 'destroy'])->name('portfolio.destroy');
-Route::get('/portfolio/{project}/edit', [ProjectsController::class, 'edit'])->name('portfolio.edit');
 
-
-Route::get('/about-me', [AboutMeController::class, 'index'])->name('about-me');
+Route::get('/about', [AboutMeController::class, 'index'])->name('about.index');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 Route::middleware('auth')->group(function () {
-
+    //LOGOUT
     Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+
+    //RUTA DE PORTFOLIO
+    Route::post('/portfolio', [ProjectsController::class, 'store'])->name('portfolio.store');
+    Route::get('/portfolio/create', [ProjectsController::class, 'create'])->name('portfolio.create');
+    Route::patch('/portfolio/{project}', [ProjectsController::class, 'update'])->name('portfolio.update');
+    Route::delete('/portfolio/{project}', [ProjectsController::class, 'destroy'])->name('portfolio.destroy');
+    Route::get('/portfolio/{project}/edit', [ProjectsController::class, 'edit'])->name('portfolio.edit');
 
 });
