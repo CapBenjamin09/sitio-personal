@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
@@ -24,10 +26,13 @@ Route::post('/login', [SessionController::class, 'authenticate'])->name('login.a
 // RUTA PORTFOLIO
 Route::get('/portfolio', [ProjectsController::class, 'index'])->name('portfolio.index');
 
-Route::get('/about', [AboutMeController::class, 'index'])->name('about.index');
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
+Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
+Route::delete('/portfolio/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 Route::middleware('auth')->group(function () {
     //LOGOUT

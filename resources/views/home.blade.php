@@ -17,7 +17,7 @@
 
             <div class="mt-6 flex flex-col sm:flex-row gap-3">
                 <x-a-button type="primary" href="{{ route('portfolio.index') }}">Portafolio</x-a-button>
-                <x-a-button type="black" href="{{ route('about-me') }}">Sobre mi</x-a-button>
+                <x-a-button type="black" href="{{ route('about.index') }}">Sobre mi</x-a-button>
             </div>
         </div>
     </div>

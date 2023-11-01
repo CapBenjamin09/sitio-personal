@@ -18,11 +18,13 @@
                     <x-nav-link :href="route('portfolio.index')"  :active="request()->routeIs('portfolio.index')">Portafolio</x-nav-link>
                 </li>
                 <li>
-                    <x-nav-link :href="route('about-me')"  :active="request()->routeIs('about-me')">Sobre mi</x-nav-link>
+                    <x-nav-link :href="route('about.index')"  :active="request()->routeIs('about.index')">Sobre mi</x-nav-link>
                 </li>
+                @guest
                 <li>
-                    <x-nav-link :href="route('contact')"  :active="request()->routeIs('contact')">Contacto</x-nav-link>
+                    <x-nav-link :href="route('contact.create')"  :active="request()->routeIs('contact.create')">Contacto</x-nav-link>
                 </li>
+                @endguest
                 @if(!request()->routeIs('login.index'))
                     @guest()
                         <li>
@@ -31,6 +33,9 @@
                     @endguest
                 @endif
                 @auth
+                    <li>
+                        <x-nav-link :href="route('contact.index')"  :active="request()->routeIs('contact.index')">Contacto</x-nav-link>
+                    </li>
                     <li>
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
