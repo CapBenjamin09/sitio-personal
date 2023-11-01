@@ -37,14 +37,14 @@ Route::middleware('auth')->group(function () {
     //LOGOUT
     Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
 
-    //RUTA DE PORTFOLIO
+    //RUTAS DE PORTFOLIO
     Route::post('/portfolio', [ProjectsController::class, 'store'])->name('portfolio.store');
     Route::get('/portfolio/create', [ProjectsController::class, 'create'])->name('portfolio.create');
     Route::patch('/portfolio/{project}', [ProjectsController::class, 'update'])->name('portfolio.update');
     Route::delete('/portfolio/{project}', [ProjectsController::class, 'destroy'])->name('portfolio.destroy');
     Route::get('/portfolio/{project}/edit', [ProjectsController::class, 'edit'])->name('portfolio.edit');
-
+    //RUTAS DE CONTACTO
     Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
     Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
-    Route::delete('/portfolio/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
+    Route::delete('/contact/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
 });
